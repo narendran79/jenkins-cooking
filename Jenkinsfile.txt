@@ -11,7 +11,7 @@ pipeline {
 	stages {
 	    stage('checkout') {
 		    steps {
-			    git credentialsId: 'github-token', url: 'https://github.com/your/repo.git', branch: 'main'
+			    git credentialsId: 'github-token', url: 'https://github.com/narendran79/jenkins-cooking.git', branch: 'main'
 			}
 		}
 	    
