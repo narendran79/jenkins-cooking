@@ -3,15 +3,16 @@ pipeline {
 	
 	environment {
 	    DOCKER_IMAGE_NAME = 'simple-web-app'
-		DOCKER_TAG = 'latest'
-		DOCKER_REGISTRY = 'docker.io/nareny39'
-        DOCKER_CREDENTIALS_ID = 'docker-credentials' // Add this in Jenkins credentials
+	    DOCKER_TAG = 'latest'
+	    DOCKER_REGISTRY = 'docker.io/nareny39'
+            DOCKER_CREDENTIALS_ID = 'docker-credentials'
+            GITHUB_CREDENTIALS_ID = 'github-token'
 	}
 	
 	stages {
 	    stage('checkout') {
 		    steps {
-			    git credentialsId: 'github-token', url: 'https://github.com/narendran79/jenkins-cooking.git', branch: 'main'
+			    git credentialsId: "${GITHUB_CREDENTIALS_ID}", url: 'https://github.com/narendran79/jenkins-cooking.git', branch: 'main'
 			}
 		}
 	    
