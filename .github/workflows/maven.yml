@@ -41,13 +41,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build
-      run: mvn clean install
+      run: |
+        cd ./app
+        mvn clean install
   
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Test
-      run: mvn test
+      run: |
+        cd ./app
+        mvn test
 
   docker_build_push:
     needs: test
