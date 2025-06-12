@@ -14,9 +14,9 @@ on:
      - main
 
 env: 
- DOCKER_IMAGE_NAME: simple-web-app-using-github-action
+ DOCKER_IMAGE_NAME: /nareny39/github-action-repo/simple-web-app-using-github-action
  DOCKER_TAG: latest
- DOCKER_REGISTRY: docker.io/nareny39/github-action-repo
+ DOCKER_REGISTRY: docker.io
 
 jobs:
   build:
