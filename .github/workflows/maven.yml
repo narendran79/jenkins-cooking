@@ -40,16 +40,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4 
     - name: Build
       run: mvn clean install
-      working-directory: pom.xml
   
   test:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - name: Test
       run: mvn test
-      working-directory: pom.xml
 
   docker_build_push:
     needs: test
