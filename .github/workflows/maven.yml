@@ -17,7 +17,7 @@ on:
       docker_push:
         description: Push Docker image to Registry
         required: true
-        default: 'false'
+        default: true
 
 env: 
  DOCKER_IMAGE_NAME: simple-web-app
@@ -38,6 +38,7 @@ jobs:
         cache: maven
   
   build:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4 
@@ -45,6 +46,7 @@ jobs:
       run: mvn clean install
   
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
