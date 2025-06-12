@@ -42,14 +42,14 @@ jobs:
     steps:
     - name: Build
       run: mvn clean install
-      working-directory: ./pom.xml
+      working-directory: pom.xml
   
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Test
       run: mvn test
-      working-directory: ./pom.xml
+      working-directory: pom.xml
 
   docker_build_push:
     needs: test
