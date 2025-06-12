@@ -16,6 +16,7 @@ on:
 env: 
  DOCKER_IMAGE_NAME: simple-web-app-using-github-action
  DOCKER_TAG: latest
+ DOCKER_REGISTRY: nareny39/github-action-repo
 
 jobs:
   build:
@@ -54,6 +55,4 @@ jobs:
         context: .
         file: ./Dockerfile.txt
         push: true
-        tags: |
-          ${{ secrets.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:latest
-          ${{ secrets.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
+        tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:latest
