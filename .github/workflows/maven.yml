@@ -40,20 +40,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: List repo contents
-      run: ls -al
     - name: Build
-      run: |
-        cd ./jenkins-cooking
-        mvn clean install
+      run: mvn clean install
+      working-directory: ./jenkins-cooking
   
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Test
-      run: |
-        cd ./jenkins-cooking
-        mvn test
+      run: mvn test
+      working-directory: ./jenkins-cooking
 
   docker_build_push:
     needs: test
