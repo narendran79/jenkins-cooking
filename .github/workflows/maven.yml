@@ -54,4 +54,6 @@ jobs:
         context: .
         file: ./Dockerfile.txt
         push: true
-        tags: ${{ secrets.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}
+        tags: |
+          ${{ secrets.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:latest
+          ${{ secrets.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
